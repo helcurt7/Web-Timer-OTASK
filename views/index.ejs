@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1 class="timeDisplay">SECONS</h1>
+    
+    <form action="/savedtime" method="POST">
+        <br>
+        <h1 id="thetime">00:00:00</h1>
+        <br>
+        
+        <label for="prompt">Please enter the time</label><br>
+        <label for="hour">Hour</label>
+        <input type="number" id="hour" name="hour" min="0" max="23" value="0">
+        
+        <label for="Minute">Minute</label>
+        <input type="number" id="Minute" name="Minute" min="0" max="59" value="0">
+        
+        <label for="Second">Second</label>
+        <input type="number" id="Second" name="Second" min="0" max="59" value="0">
+        
+        <br><br>
+        
+        <button type="submit" name="action" value="start">
+            <%= pausetime ? 'Resume' : 'Start' %> Timer
+        </button>
+        
+        <button type="submit" name="action" value="pause" <%= !isRunning ? 'disabled' : '' %>>
+            Pause
+        </button>
+        
+        <button type="submit" name="action" value="reset">
+            Reset
+        </button>
+    </form>
+</div>
+
+<script>
+    // Get the remaining time from server
+    let pausetime = <%= pausetime %>;
+    let remainingTime = <%= remainingtime %>;
+    let isRunning = <%= isRunning %>;
+    let startTime = Date.now();
+    
+    function updateDisplay() {
+        const hours = Math.floor(remainingTime / 3600);
+        const minutes = Math.floor((remainingTime % 3600) / 60);
+        const seconds = remainingTime % 60;
+        
+        const display = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('thetime').textContent = display;
+    }
+    
+    function countdown() {
+        if (isRunning && remainingTime > 0) {
+            remainingTime--;
+            updateDisplay();
+            
+            if (remainingTime <= 0) {
+                alert('Time\'s up!');
+                isRunning = false;
+            }
+        }
+    }
+    
+    // Update display immediately
+    updateDisplay();
+    
+    // Start countdown if timer is running
+    if (isRunning) {
+        setInterval(countdown, 1000);
+    }
+</script>
+
+<%- include('partials/footer') %>
