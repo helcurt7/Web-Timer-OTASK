@@ -1,2 +1,2 @@
 # Web-Timer-OTASK
-this is a web timer app for learning hope u gais like it
+this is a web timer app using express framewowrk for learning hope u gais like it
