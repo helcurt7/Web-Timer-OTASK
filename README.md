@@ -22,3 +22,41 @@ Run in Visual Code(blue)
 To Run this cd to index.js and nodemon index.js then open on the website on http://localhost:3000/
 <img width="1435" height="504" alt="image" src="https://github.com/user-attachments/assets/2cf8244f-89dc-4964-a1e0-0d8aa47f1db2" />
 <img width="1919" height="1023" alt="image" src="https://github.com/user-attachments/assets/687ff2d6-ccfc-49b3-a876-6b219034f538" />
+user@MSI MINGW64 ~/web projek1.0/otask (master)
+$ nodemon index.js
+
+
+[nodemon] 3.1.9
+
+
+[nodemon] to restart at any time, enter `rs`
+
+
+[nodemon] watching path(s): *.*
+
+
+[nodemon] watching extensions: js,mjs,cjs,json
+
+
+[nodemon] starting `node index.js`
+
+
+Server listening on port 3000
+
+
+Action: start
+
+
+Total seconds from input: 36000
+
+
+Starting new timer with: 36000 seconds
+
+
+Action: pause
+
+
+Total seconds from input: 0
+
+
+Timer paused. Time elapsed: 3.301 Remaining: 35996.699 backend will record the time 
